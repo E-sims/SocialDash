@@ -62,8 +62,11 @@
     height: rem(20);
   }
 
+  &__subtitle {
+    font-size: rem(14);
+    font-weight: 700;
+  }
   &__icon {
-    margin-right: rem(8);
     &--facebook {
     }
 
@@ -98,6 +101,7 @@
     }
 
     &--small {
+      font-size: rem(32);
     }
   }
 
