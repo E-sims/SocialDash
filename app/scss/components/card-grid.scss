@@ -3,7 +3,7 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(2, minmax(rem(40), rem(40)));
   justify-items: start;
   gap: rem(23);
 
@@ -15,7 +15,7 @@
 
   .card__count,
   .card__change {
-    align-self: end;
+    justify-self: end;
   }
 
   img,

@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: rem(36);
+  gap: rem(24) 0;
 
   @include breakpoint(medium) {
     justify-content: space-between;

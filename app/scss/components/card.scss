@@ -21,6 +21,12 @@
   padding: rem(25);
   border-radius: rem(5);
   overflow: hidden;
+  transition: background 150ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--dark-card-hover);
+  }
 
   &--facebook {
     border-top: rem(5) solid var(--facebook);
@@ -60,6 +66,7 @@
     align-items: center;
     margin-bottom: rem(28);
     height: rem(20);
+    gap: rem(9);
   }
 
   &__subtitle {
@@ -94,7 +101,7 @@
     font-weight: 700;
     letter-spacing: rem(-2);
     line-height: 1;
-    margin-bottom: rem(9);
+    margin: 0;
 
     &--big {
       font-size: rem(56);
