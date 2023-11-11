@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   margin-top: rem(36);
   gap: rem(24) 0;
+  width: 100%;
 
   @include breakpoint(medium) {
     align-items: center;
