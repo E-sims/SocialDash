@@ -7,13 +7,12 @@
   gap: rem(24) 0;
 
   @include breakpoint(medium) {
-    justify-content: space-between;
     align-items: center;
   }
 
   &__title {
     width: 100%;
-
+    justify-self: start;
     @include breakpoint(medium) {
       width: auto;
     }
