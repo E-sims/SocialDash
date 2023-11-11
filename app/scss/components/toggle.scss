@@ -1,67 +1,43 @@
 @use '../util' as *;
 
 .toggle {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: rem(4.8) rem(8);
-  border: none;
-  margin: 0;
-  padding: 0;
+  position: relative;
+  display: flex;
+  gap: rem(16);
+  flex-direction: row;
+  width: fit-content;
+  border-radius: rem(16);
+  height: rem(32);
+  justify-content: center;
   align-items: center;
+  padding: rem(8);
+  background: var(--toggle-bg);
 
-  label {
-    font-size: rem(14);
-    font-weight: 700;
-    color: var(--toggle);
-    grid-column: 1 / 2;
-    display: inline-block;
-
-    &[for='dark'] {
-      line-height: rem(24);
-    }
-  }
-
-  &__wrapper {
-    position: relative;
-    grid-column: 2 / 3;
-    height: rem(24);
-    width: 100%;
-  }
-
-  input[type='radio'] {
-    opacity: 0;
-    margin: 0 -2px 0 0;
+  &::before {
+    content: '';
+    position: absolute;
     width: rem(24);
     height: rem(24);
-  }
-
-  &__background {
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    border-radius: rem(12);
-    background: var(--toggle-bg);
-    pointer-events: none;
-    opacity: 1;
-  }
-
-  &__button {
-    position: absolute;
-    left: rem(3);
-    top: rem(3);
-    right: 100%;
-    width: rem(18);
-    height: rem(18);
     border-radius: 50%;
     background-color: var(--toggle-button);
-    pointer-events: none;
-    transition: all 150ms ease-in-out;
+    z-index: 0;
+    left: 0;
+    transform: translateX(var(--toggle-button-pos));
+    transition: transform 300ms ease-in-out;
   }
 
-  #light:checked ~ .toggle__button {
-    left: calc(100% - 21px);
-    right: 3px;
+  &__icon {
+    fill: var(--text-color-secondary);
+    height: rem(16);
+    width: rem(16);
+    z-index: 1;
+    transition: var(--default-transistion);
+
+    &#icon-sun {
+      fill: var(--icon-color-sun);
+    }
+    &#icon-moon {
+      fill: var(--icon-color-moon);
+    }
   }
 }

@@ -1,6 +1,10 @@
 html {
   font-size: 100%;
   box-sizing: border-box;
+  --default-transistion: color 0.3s ease-in-out, background 0.3s ease-in-out,
+    background-color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    fill 0.3s ease-in-out, stroke 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 *,
@@ -15,6 +19,7 @@ body {
   font-family: var(--font-inter);
   background: var(--background);
   color: var(--text-color);
+  transition: var(--default-transistion);
 }
 
 .visually-hidden {

@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
+    <script>
+      // check local storage
+      let localStorageTheme = localStorage.getItem('theme')
+      themeToSet = localStorageTheme
+
+      // If local storage is not set, we then check OS
+
+      if (!localStorageTheme) {
+        themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+      }
+      document.documentElement.setAttribute('data-theme', themeToSet)
+    </script>
     <link
       rel="icon"
       type="image/png"
@@ -43,19 +57,50 @@
         <span class="header__subtitle">Total Followers: 23,004</span>
       </div>
 
-      <fieldset class="toggle" aria-label="theme switcher" role="radiogroup">
-        <label for="dark">Dark Mode
-          <span class="visually-hidden">On</span>
-        </label>
-        <label for="light" class="visually-hidden">Dark Mode Off</span>
-        </label>
-        <div class="toggle__wrapper">
-          <input type="radio" name="theme" id="dark" />
-          <input type="radio" name="theme" id="light" />
-          <span aria-hidden="true" class="toggle__background"></span>
-          <span aria-hidden="true" class="toggle__button"></span>
-        </div>
-      </fieldset>
+      <div class="toggle">
+        <svg
+          class="toggle__icon"
+          id="icon-sun"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path d="M9.5 18.25V19.5H10.5V18.25H9.5Z" />
+          <path d="M9.5 0.5V1.75H10.5V0.5H9.5Z" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.5 10C4.5 6.96243 6.96243 4.5 10 4.5C13.0376 4.5 15.5 6.96243 15.5 10C15.5 13.0376 13.0376 15.5 10 15.5C6.96243 15.5 4.5 13.0376 4.5 10ZM10 5.5C7.51472 5.5 5.5 7.51472 5.5 10C5.5 12.4853 7.51472 14.5 10 14.5C12.4853 14.5 14.5 12.4853 14.5 10C14.5 7.51472 12.4853 5.5 10 5.5Z"
+          />
+          <path d="M0.5 9.5H1.75V10.5H0.5V9.5Z" />
+          <path d="M18.25 9.5H19.5V10.5H18.25V9.5Z" />
+          <path
+            d="M3.63604 2.92896L4.51992 3.81284L3.81281 4.51995L2.92893 3.63606L3.63604 2.92896Z"
+          />
+          <path
+            d="M16.1872 15.4801L17.0711 16.364L16.364 17.0711L15.4801 16.1872L16.1872 15.4801Z"
+          />
+          <path
+            d="M3.81284 15.4801L2.92896 16.364L3.63606 17.0711L4.51995 16.1872L3.81284 15.4801Z"
+          />
+          <path
+            d="M16.364 2.92894L15.4801 3.81282L16.1872 4.51993L17.0711 3.63604L16.364 2.92894Z"
+          />
+        </svg>
+        <svg
+          id="icon-moon"
+          class="toggle__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5C15.3719 19.5 18.2241 17.2748 19.1682 14.2128C18.1652 15.2237 16.7747 15.85 15.2375 15.85C12.1792 15.85 9.7 13.3708 9.7 10.3125C9.7 7.57737 11.683 5.30539 14.2897 4.8558C13.5681 4.62474 12.7988 4.5 12 4.5ZM3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C13.8268 3.5 15.5204 4.07687 16.9066 5.05833L16.4809 5.94735C16.0864 5.8352 15.6694 5.775 15.2375 5.775C12.7315 5.775 10.7 7.80651 10.7 10.3125C10.7 12.8185 12.7315 14.85 15.2375 14.85C17.2235 14.85 18.9127 13.5738 19.5273 11.7953L20.4999 11.9561C20.5 11.9707 20.5 11.9854 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12Z"
+          />
+        </svg>
+      </div>
     </header>
     <main>
       <section class="container cards">

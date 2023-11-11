@@ -1,13 +1,20 @@
-const radioButtons = document.querySelectorAll('input[name="theme"]')
+//swtich function
 
-radioButtons.forEach((radio) => {
-  radio.addEventListener('change', () => {
-    if (radio.id === 'dark') {
-      document.body.classList.add('dark')
-      document.body.classList.remove('light')
-    } else {
-      document.body.classList.add('light')
-      document.body.classList.remove('dark')
-    }
-  })
-})
+const switchTheme = () => {
+  // Get the root element and data-theme value
+  const rElement = document.documentElement
+  let theme = rElement.getAttribute('data-theme')
+
+  let newTheme = theme === 'light' ? 'dark' : 'light'
+
+  // Set the theme
+  rElement.setAttribute('data-theme', newTheme)
+
+  // Set the localStorage theme preference
+  localStorage.setItem('theme', newTheme)
+}
+
+// Add event listener for switching theme
+document.querySelector('.toggle').addEventListener('click', switchTheme)
+
+// Listen for OS theme changes

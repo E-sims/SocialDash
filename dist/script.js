@@ -1,2 +1,2 @@
-"use strict";var radioButtons=document.querySelectorAll('input[name="theme"]');radioButtons.forEach((function(t){t.addEventListener("change",(function(){"dark"===t.id?(document.body.classList.add("dark"),document.body.classList.remove("light")):(document.body.classList.add("light"),document.body.classList.remove("dark"))}))}));
+"use strict";var switchTheme=function(){var t=document.documentElement,e="light"===t.getAttribute("data-theme")?"dark":"light";t.setAttribute("data-theme",e),localStorage.setItem("theme",e)};document.querySelector(".toggle").addEventListener("click",switchTheme);
 //# sourceMappingURL=script.js.map
